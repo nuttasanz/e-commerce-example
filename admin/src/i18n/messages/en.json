@@ -1,0 +1,15 @@
+{
+  "label": "Change language",
+  "locale": "{locale, select, th {🇩🇪 ไทย} en {🇺🇸 English} other {Unknown}}",
+  "login": {
+    "welcome": "Welcome Back",
+    "welcome_desc": "Log in to continue"
+  },
+  "form": {
+    "email": "Email",
+    "email_placeholder": "Please enter your email",
+    "password": "Password",
+    "password_placeholder": "Please enter your password",
+    "login": "Log in"
+  }
+}

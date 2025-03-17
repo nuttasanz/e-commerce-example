@@ -1,0 +1,15 @@
+{
+  "label": "เปลี่ยนภาษา",
+  "locale": "{locale, select, th {🇩🇪 ไทย} en {🇺🇸 English} other {ไม่ทราบ}}",
+  "login": {
+    "welcome": "ยินดีต้อนรับกลับมา",
+    "welcome_desc": "เข้าสู่ระบบเพื่อดำเนินการต่อ"
+  },
+  "form": {
+    "email": "อีเมล",
+    "email_placeholder": "กรุณากรอกอีเมล",
+    "password": "พาสเวิร์ด",
+    "password_placeholder": "กรุณากรอกพาสเวิร์ด",
+    "login": "เข้าสู่ระบบ"
+  }
+}

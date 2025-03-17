@@ -1,6 +1,7 @@
 import { ENDPOINT } from "@/constants/endpoint";
 import axiosInstance from "@/lib/axiosInstance";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { toast } from "sonner";
 
 interface User {
   user: any;
@@ -8,7 +9,7 @@ interface User {
 }
 
 const initialState: User = {
-  user: {},
+  user: null,
   loading: false,
 };
 
@@ -23,7 +24,7 @@ const userSlice = createSlice({
       state.loading = action.payload;
     },
     clearState: (state) => {
-      state.user = {};
+      state.user = null;
     },
   },
 });
@@ -34,14 +35,18 @@ export default userSlice.reducer;
 export const login = (body: any) => {
   return async (dispatch: any) => {
     try {
-      dispatch(clearState());
-      dispatch(setLoading(true));
+      await dispatch(clearState());
+      await dispatch(setLoading(true));
       const response = await axiosInstance.post(`${ENDPOINT.LOGIN}`, body);
-      dispatch(setUser(response.data.data));
-    } catch (error) {
-      console.error(error);
+      await dispatch(setUser(response.data.data));
+    } catch (error: any) {
+      console.warn(error);
+      toast.error(error?.response?.data?.message, {
+        closeButton: true,
+        position: "top-right",
+      });
     } finally {
-      dispatch(setLoading(false));
+      await dispatch(setLoading(false));
     }
   };
 };
